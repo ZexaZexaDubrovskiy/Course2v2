@@ -1,0 +1,155 @@
+﻿<Page x:Class="Realty.Pages.AccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Realty.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AccountPage" Loaded="Page_Loaded">
+    <Grid Background="#F4F9F4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition x:Name="AccountColumnChange" Width="400" MaxWidth="400"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.ColumnSpan="5" Grid.RowSpan="5" Source="/Images/back.png" 
+               Stretch="Fill" Opacity="0.3"/>
+        
+        <TextBlock Text="Аккаунты" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="26" FontWeight="ExtraBold" Foreground="#8AAE92"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Button x:Name="AccountAdd" Height="30" Width="100" Margin="5,5,0,5" Click="AccountAdd_Click" Background="#8AAE92">
+                <TextBox Text="Добавить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Button x:Name="AccountCopy" Height="30" Width="100" Padding="5,5,5,5" Margin="5,5,0,5" Click="AccountCopy_Click" Background="#8AAE92">
+                <TextBox Text="Копировать" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="14" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Button x:Name="AccountEdit" Height="30" Width="100" Padding="5,5,5,5" Margin="5,5,0,5" Click="AccountEdit_Click" Background="#8AAE92">
+                <TextBox Text="Изменить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Button x:Name="AccountDelete" Height="30" Width="100" Padding="5,5,5,5" Margin="5,5,0,5" Click="AccountDelete_Click" Background="#8AAE92">
+                <TextBox Text="Удалить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Label Content="|" FontSize="24" FontWeight="Bold" Foreground="Gray" Margin="15,0,0,0"/>
+            <ComboBox x:Name="AccountFilterComboBox" Width="150" Height="30" Margin="15,0,0,0" Style="{StaticResource ComboBoxStyle2}">
+                
+                
+                
+            </ComboBox>
+            <TextBox x:Name="AccountFilterTextBox" Margin="5,0,5,0" Width="170" Height="30" TextChanged="AccountFilterTextBox_TextChanged" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="16" BorderThickness="0" Padding="0,4,0,0"/>
+        </StackPanel>
+
+        
+        
+        
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid x:Name="AccountGrid" AutoGenerateColumns="False" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Логин" Binding="{Binding Path=Login}" Width="10*"/>
+                    <DataGridTextColumn Header="Пароль" Binding="{Binding Path=Password}" Width="10*"/>
+                    <DataGridTextColumn Header="Админ" Binding="{Binding Path=Admin}" Width="10*"/>
+                    <DataGridTextColumn Header="Номер телефона" Binding="{Binding Path=Phone}" Width="10*"/>
+                    <DataGridTextColumn Header="Паспорт" Binding="{Binding Path=PassportNumbers}" Width="10*"/>
+                    <DataGridTextColumn Header="ФИО" Binding="{Binding Path=FIO}" Width="10*"/>
+                    <DataGridTextColumn Header="Почта" Binding="{Binding Path=email}" Width="10*"/>
+                    <DataGridTextColumn Header="Деньги" Binding="{Binding Path=money}" Width="10*"/>
+
+                    <!--столбец с кнопками управления-->
+                    <DataGridTemplateColumn Header="Управление">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Изм." Width="30" Margin="5,0,0,0" x:Name="AccountEdit"
+                                            FontSize="8" Click="AccountEdit_Click"/>
+                                    <Button Content="Удал." Width="30" Margin="5,0,5,0" x:Name="AccountDelete"
+                                            FontSize="8" Click="AccountDelete_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        
+        <GridSplitter Grid.Column="1" Grid.Row="2" Width="3" HorizontalAlignment="Stretch" />
+        
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Vertical" Background="#F4F9F4">
+            <Label x:Name="AccountLabel" Content="Добавить аккаунт" Foreground="#8AAE92" FontSize="18" FontWeight="Bold" Margin="5,0,0,0"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Логин" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="AccountTextLogin" Width="150" Height="15" Margin="5,0,0,0" Foreground="White" 
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Пароль" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="AccountTextPassword"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Админ" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="AccountTextAdmin"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Телефон" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="AccountTextPhone"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Паспорт" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="AccountTextPassportNumbers"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="ФИО" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="AccountTextFIO"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Почта" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="AccountTextEmail"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Деньги" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="AccountTextMoney"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <Button x:Name="AccountAddCommit" Height="30" Width="150" Padding="0,0,0,0" Margin="5,5,0,5" Click="AccountAddCommit_Click" Background="#8AAE92">
+                    <TextBox Text="Добавить аккаунт" x:Name="AccountAddCommitTextBox" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+                </Button>
+                <Button x:Name="AccountAddRollback" Height="30" Width="150" Padding="0,0,0,0"
+                        Margin="5,5,0,5" Click="AccountAddRollback_Click" Background="#8AAE92">
+                    <TextBox Text="Отменить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

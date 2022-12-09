@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RealtyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="idAccount" />
+          </Key>
+          <Property Name="idAccount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Admin" Type="tinyint" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="11" />
+          <Property Name="PassportNumbers" Type="int" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="money" Type="money" />
+        </EntityType>
+        <EntityType Name="Realty">
+          <Key>
+            <PropertyRef Name="IdRealty" />
+          </Key>
+          <Property Name="IdRealty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Square" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Floor" Type="int" />
+          <Property Name="Rooms" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="IdOwnerAccount" Type="int" />
+          <Property Name="IdTypeRealty" Type="int" />
+          <Property Name="img" Type="text" />
+          <Property Name="idStatusRealty" Type="int" />
+        </EntityType>
+        <EntityType Name="StatusRealty">
+          <Key>
+            <PropertyRef Name="idStatusRealty" />
+          </Key>
+          <Property Name="idStatusRealty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="IdTransaction" />
+          </Key>
+          <Property Name="IdTransaction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTransactionRealty" Type="int" />
+          <Property Name="TransactionAccountOwner" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="PriceTransaction" Type="money" />
+          <Property Name="Status" Type="nvarchar" MaxLength="15" />
+          <Property Name="IdTransactionTypeRealty" Type="int" />
+          <Property Name="TransactionAccountBuyer" Type="int" />
+        </EntityType>
+        <EntityType Name="TypeRealty">
+          <Key>
+            <PropertyRef Name="idTypeRealty" />
+          </Key>
+          <Property Name="idTypeRealty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Realty_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Realty" Type="Self.Realty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="idAccount" />
+            </Principal>
+            <Dependent Role="Realty">
+              <PropertyRef Name="IdOwnerAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Realty_StatusRealty">
+          <End Role="StatusRealty" Type="Self.StatusRealty" Multiplicity="0..1" />
+          <End Role="Realty" Type="Self.Realty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusRealty">
+              <PropertyRef Name="idStatusRealty" />
+            </Principal>
+            <Dependent Role="Realty">
+              <PropertyRef Name="idStatusRealty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Realty_TypeRealty">
+          <End Role="TypeRealty" Type="Self.TypeRealty" Multiplicity="0..1" />
+          <End Role="Realty" Type="Self.Realty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeRealty">
+              <PropertyRef Name="idTypeRealty" />
+            </Principal>
+            <Dependent Role="Realty">
+              <PropertyRef Name="IdTypeRealty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Realty">
+          <End Role="Realty" Type="Self.Realty" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Realty">
+              <PropertyRef Name="IdRealty" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="IdTransactionRealty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RealtyModelStoreContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Realty" EntityType="Self.Realty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusRealty" EntityType="Self.StatusRealty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeRealty" EntityType="Self.TypeRealty" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Realty_Accounts" Association="Self.FK_Realty_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Realty" EntitySet="Realty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Realty_StatusRealty" Association="Self.FK_Realty_StatusRealty">
+            <End Role="StatusRealty" EntitySet="StatusRealty" />
+            <End Role="Realty" EntitySet="Realty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Realty_TypeRealty" Association="Self.FK_Realty_TypeRealty">
+            <End Role="TypeRealty" EntitySet="TypeRealty" />
+            <End Role="Realty" EntitySet="Realty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Realty" Association="Self.FK_Transaction_Realty">
+            <End Role="Realty" EntitySet="Realty" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RealtyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypeRealty">
+          <Key>
+            <PropertyRef Name="idTypeRealty" />
+          </Key>
+          <Property Name="idTypeRealty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Realty" Relationship="RealtyModel.FK_Realty_TypeRealty" FromRole="TypeRealty" ToRole="Realty" />
+        </EntityType>
+        <EntityContainer Name="RealtyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TypeRealty" EntityType="Self.TypeRealty" />
+          <EntitySet Name="StatusRealty" EntityType="RealtyModel.StatusRealty" />
+          <EntitySet Name="Accounts" EntityType="RealtyModel.Accounts" />
+          <EntitySet Name="Realty" EntityType="RealtyModel.Realty" />
+          <EntitySet Name="Transaction" EntityType="RealtyModel.Transaction" />
+          <AssociationSet Name="FK_Realty_Accounts" Association="RealtyModel.FK_Realty_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Realty" EntitySet="Realty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Realty_StatusRealty" Association="RealtyModel.FK_Realty_StatusRealty">
+            <End Role="StatusRealty" EntitySet="StatusRealty" />
+            <End Role="Realty" EntitySet="Realty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Realty_TypeRealty" Association="RealtyModel.FK_Realty_TypeRealty">
+            <End Role="TypeRealty" EntitySet="TypeRealty" />
+            <End Role="Realty" EntitySet="Realty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Realty" Association="RealtyModel.FK_Transaction_Realty">
+            <End Role="Realty" EntitySet="Realty" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="StatusRealty">
+          <Key>
+            <PropertyRef Name="idStatusRealty" />
+          </Key>
+          <Property Name="idStatusRealty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Realty" Relationship="RealtyModel.FK_Realty_StatusRealty" FromRole="StatusRealty" ToRole="Realty" />
+        </EntityType>
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="idAccount" />
+          </Key>
+          <Property Name="idAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Admin" Type="Byte" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="PassportNumbers" Type="Int32" />
+          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="money" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Realty" Relationship="RealtyModel.FK_Realty_Accounts" FromRole="Accounts" ToRole="Realty" />
+        </EntityType>
+        <EntityType Name="Realty">
+          <Key>
+            <PropertyRef Name="IdRealty" />
+          </Key>
+          <Property Name="IdRealty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Square" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Floor" Type="Int32" />
+          <Property Name="Rooms" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IdOwnerAccount" Type="Int32" />
+          <Property Name="IdTypeRealty" Type="Int32" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idStatusRealty" Type="Int32" />
+          <NavigationProperty Name="Accounts" Relationship="RealtyModel.FK_Realty_Accounts" FromRole="Realty" ToRole="Accounts" />
+          <NavigationProperty Name="StatusRealty" Relationship="RealtyModel.FK_Realty_StatusRealty" FromRole="Realty" ToRole="StatusRealty" />
+          <NavigationProperty Name="TypeRealty" Relationship="RealtyModel.FK_Realty_TypeRealty" FromRole="Realty" ToRole="TypeRealty" />
+          <NavigationProperty Name="Transaction" Relationship="RealtyModel.FK_Transaction_Realty" FromRole="Realty" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="IdTransaction" />
+          </Key>
+          <Property Name="IdTransaction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTransactionRealty" Type="Int32" />
+          <Property Name="TransactionAccountOwner" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="PriceTransaction" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IdTransactionTypeRealty" Type="Int32" />
+          <Property Name="TransactionAccountBuyer" Type="Int32" />
+          <NavigationProperty Name="Realty" Relationship="RealtyModel.FK_Transaction_Realty" FromRole="Transaction" ToRole="Realty" />
+        </EntityType>
+        <Association Name="FK_Realty_Accounts">
+          <End Type="RealtyModel.Accounts" Role="Accounts" Multiplicity="0..1" />
+          <End Type="RealtyModel.Realty" Role="Realty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="idAccount" />
+            </Principal>
+            <Dependent Role="Realty">
+              <PropertyRef Name="IdOwnerAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Realty_StatusRealty">
+          <End Type="RealtyModel.StatusRealty" Role="StatusRealty" Multiplicity="0..1" />
+          <End Type="RealtyModel.Realty" Role="Realty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusRealty">
+              <PropertyRef Name="idStatusRealty" />
+            </Principal>
+            <Dependent Role="Realty">
+              <PropertyRef Name="idStatusRealty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Realty_TypeRealty">
+          <End Type="RealtyModel.TypeRealty" Role="TypeRealty" Multiplicity="0..1" />
+          <End Type="RealtyModel.Realty" Role="Realty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeRealty">
+              <PropertyRef Name="idTypeRealty" />
+            </Principal>
+            <Dependent Role="Realty">
+              <PropertyRef Name="IdTypeRealty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Realty">
+          <End Type="RealtyModel.Realty" Role="Realty" Multiplicity="0..1" />
+          <End Type="RealtyModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Realty">
+              <PropertyRef Name="IdRealty" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="IdTransactionRealty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RealtyModelStoreContainer" CdmEntityContainer="RealtyEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RealtyModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeRealty">
+            <EntityTypeMapping TypeName="RealtyModel.TypeRealty">
+              <MappingFragment StoreEntitySet="TypeRealty">
+                <ScalarProperty Name="idTypeRealty" ColumnName="idTypeRealty" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusRealty">
+            <EntityTypeMapping TypeName="RealtyModel.StatusRealty">
+              <MappingFragment StoreEntitySet="StatusRealty">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="idStatusRealty" ColumnName="idStatusRealty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="RealtyModel.Accounts">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="PassportNumbers" ColumnName="PassportNumbers" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="idAccount" ColumnName="idAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Realty">
+            <EntityTypeMapping TypeName="RealtyModel.Realty">
+              <MappingFragment StoreEntitySet="Realty">
+                <ScalarProperty Name="idStatusRealty" ColumnName="idStatusRealty" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="IdTypeRealty" ColumnName="IdTypeRealty" />
+                <ScalarProperty Name="IdOwnerAccount" ColumnName="IdOwnerAccount" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Rooms" ColumnName="Rooms" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Square" ColumnName="Square" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IdRealty" ColumnName="IdRealty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaction">
+            <EntityTypeMapping TypeName="RealtyModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="TransactionAccountBuyer" ColumnName="TransactionAccountBuyer" />
+                <ScalarProperty Name="IdTransactionTypeRealty" ColumnName="IdTransactionTypeRealty" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PriceTransaction" ColumnName="PriceTransaction" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TransactionAccountOwner" ColumnName="TransactionAccountOwner" />
+                <ScalarProperty Name="IdTransactionRealty" ColumnName="IdTransactionRealty" />
+                <ScalarProperty Name="IdTransaction" ColumnName="IdTransaction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,160 @@
+﻿<Page x:Class="Realty.Pages.RealtyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Realty.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RealtyPage" Loaded="Page_Loaded">
+    <Grid Background="#F4F9F4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition x:Name="RealtyColumnChange" Width="400" MaxWidth="400"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.ColumnSpan="5" Grid.RowSpan="5" Source="/Images/back.png" 
+               Stretch="Fill" Opacity="0.3"/>
+
+        <TextBlock Text="Недвижимость" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="26" FontWeight="ExtraBold" Foreground="#8AAE92"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Button x:Name="RealtyAdd" Height="30" Width="100" Margin="5,5,0,5" Click="RealtyAdd_Click"  Background="#8AAE92">
+                <TextBox Text="Добавить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Button x:Name="RealtyCopy" Height="30" Width="100" Padding="5,5,5,5" Margin="5,5,0,5" Click="RealtyCopy_Click" Background="#8AAE92">
+                <TextBox Text="Копировать" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="14" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Button x:Name="RealtyEdit" Height="30" Width="100" Padding="5,5,5,5" Margin="5,5,0,5" Click="RealtyEdit_Click" Background="#8AAE92">
+                <TextBox Text="Изменить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Button x:Name="RealtyDelete" Height="30" Width="100" Padding="5,5,5,5" Margin="5,5,0,5" Click="RealtyDelete_Click" Background="#8AAE92">
+                <TextBox Text="Удалить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Label Content="|" FontSize="24" FontWeight="Bold" Foreground="Gray" Margin="15,0,0,0"/>
+            <ComboBox x:Name="RealtyFilterComboBox" Width="150" Height="30" Margin="15,0,0,0" Style="{StaticResource ComboBoxStyle2}" />
+            <TextBox x:Name="RealtyFilterTextBox" Margin="5,0,5,0" Width="170" Height="30" TextChanged="RealtyFilterTextBox_TextChanged" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="16" BorderThickness="0" Padding="0,4,0,0"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid x:Name="RealtyGrid" AutoGenerateColumns="False" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Path=Price}" Width="10*"/>
+                    <DataGridTextColumn Header="Кв. метры" Binding="{Binding Path=Square}" Width="10*"/>
+                    <DataGridTextColumn Header="Этаж\\этажей" Binding="{Binding Path=Floor}" Width="10*"/>
+                    <DataGridTextColumn Header="Комнат" Binding="{Binding Path=Rooms}" Width="10*"/>
+                    <DataGridTextColumn Header="Адрес" Binding="{Binding Path=Address}" Width="10*"/>
+                    <DataGridTextColumn Header="Владелец" Binding="{Binding Path=IdOwnerAccount}" Width="10*"/>
+                    <DataGridTextColumn Header="Тип" Binding="{Binding Path=TypeRealty.Type}" Width="10*"/>
+                    <DataGridTextColumn Header="Изображение" Binding="{Binding Path=img}" Width="10*"/>
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Path=StatusRealty.Status}" Width="10*"/>
+
+                    <!--столбец с кнопками управления-->
+                    <DataGridTemplateColumn Header="Управление">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Изм." Width="30" Margin="5,0,0,0" x:Name="RealtyEdit"
+                                            FontSize="8" Click="RealtyEdit_Click"/>
+                                    <Button Content="Удал." Width="30" Margin="5,0,5,0" x:Name="RealtyDelete"
+                                            FontSize="8" Click="RealtyDelete_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+
+        <GridSplitter Grid.Column="1" Grid.Row="2" Width="3" HorizontalAlignment="Stretch" />
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Vertical" Background="#F4F9F4">
+            <Label x:Name="RealtyLabel" Content="Добавить недвижимость" Foreground="#8AAE92" FontSize="18" FontWeight="Bold" Margin="5,0,0,0"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Цена" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="RealtyTextPrice" Width="150" Height="15" Margin="5,0,0,0" Foreground="White" 
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Кв. метры" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="RealtyTextSquare"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Этаж//этажей" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="RealtyTextFloor"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Комнат" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="RealtyTextRooms"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Адрес" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="RealtyTextAddress"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Владелец" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="RealtyTextIdOwnerAccount"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Content="Тип" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <ComboBox x:Name="RealtyTextIdTypeRealty"  Width="150" Height="20" FontSize="12" BorderThickness="0" 
+                          Margin="5,0,0,0" DisplayMemberPath="Type" Style="{StaticResource ComboBoxStyle2}" Padding="0,0,0,2"/>
+            
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Изображение" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="RealtyTextimg"  Width="150" Height="15" Margin="5,0,0,0" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Content="Статус" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <ComboBox x:Name="RealtyTextidStatusRealty"  Width="150" Height="20" FontSize="12" BorderThickness="0" 
+                          Margin="5,0,0,0" DisplayMemberPath="Status" Style="{StaticResource ComboBoxStyle2}" Padding="0,0,0,2"/>
+            </StackPanel>
+
+
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <Button x:Name="RealtyAddCommit" Height="30" Width="150" Padding="0,0,0,0" Margin="5,5,0,5" Click="RealtyAddCommit_Click" Background="#8AAE92">
+                    <TextBox Text="Добавить " x:Name="RealtyAddCommitTextBox" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+                </Button>
+                <Button x:Name="RealtyAddRollback" Height="30" Width="150" Click="RealtyAddRollback_Click" Padding="0,0,0,0"
+                        Margin="5,5,0,5"  Background="#8AAE92">
+                    <TextBox Text="Отменить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

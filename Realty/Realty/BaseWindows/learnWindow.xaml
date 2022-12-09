@@ -1,0 +1,60 @@
+﻿<Window x:Class="Realty.BaseWindows.learnWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Realty.BaseWindows"
+        mc:Ignorable="d"
+        Title="learnWindow" Width="1200" Height="720"
+        MinWidth="1200" MinHeight="720"
+        MaxWidth="1200" MaxHeight="720"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="Width">
+    <Grid Background="#F4F9F4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.ColumnSpan="5" Grid.RowSpan="5" Source="/Images/back.png" 
+               Stretch="Fill" Opacity="0.3"/>
+
+        <StackPanel Grid.Row="0" Grid.Column="2"  Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Image Source="/Images/phone.png" Width="40" Height="40" />
+            <Label Content="8 (4855) 24-21-09" Background="Transparent" Foreground="#616161"
+                           FontWeight="Bold" FontSize="28" BorderThickness="0"
+                           Width="250" Height="50" Margin="0,0,30,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="3" Background="#C4E3CB"/>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Top">
+            <Label x:Name="Text"  Background="Transparent" Foreground="White"
+                           FontWeight="Bold" HorizontalAlignment="Left"
+                        FontSize="40" Margin="0,10,10,10"
+                        >
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" />
+                    </Label.Effect>
+                </Label>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Center">
+            <Button Width="200" Height="100" Margin="0,-10,0,0"   Background="#616161" Click="Button_Click">
+                <Image DockPanel.Dock="Left" Width="200" Height="100"
+                           Source="/Images/home.png"/>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

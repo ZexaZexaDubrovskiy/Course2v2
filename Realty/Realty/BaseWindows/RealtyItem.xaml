@@ -1,0 +1,91 @@
+﻿<Window x:Class="Realty.BaseWindows.RealtyItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Realty.BaseWindows"
+        mc:Ignorable="d"
+        Title="RealtyItem" 
+        Width="640" Height="950"
+        MinWidth="640" MinHeight="950"
+        MaxWidth="640" MaxHeight="950"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="750"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.ColumnSpan="5" Grid.RowSpan="5" Source="/Images/back.png" 
+               Stretch="Fill" Opacity="0.3"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+            <Rectangle Fill="#C4E3CB" Width="600" Height="800" 
+                       RadiusX="100" RadiusY="100" HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,24,0,0">
+            <Image x:Name="img" Width="400" Height="200"/>
+            <TextBlock Text="Цена: " x:Name="price" FontSize="24" HorizontalAlignment="Left"
+                    FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+            <TextBlock  Text="Адрес: " x:Name="address" FontSize="24" HorizontalAlignment="Left"
+                    FontWeight="Bold" Foreground="White" Margin="10,0,0,0"
+                   TextWrapping="Wrap"/>
+            <TextBlock Text="Комнат: " x:Name="rooms" FontSize="24" HorizontalAlignment="Left"
+                    FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+            <TextBlock Text="кв. метры: " x:Name="square" FontSize="24" HorizontalAlignment="Left"
+                    FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+            <TextBlock Text="Этаж: " x:Name="Floor" FontSize="24" HorizontalAlignment="Left"
+                    FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+            <TextBlock Text="TypeRealty: " x:Name="typeRealtys" FontSize="24" HorizontalAlignment="Left"
+                    FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+            <TextBlock Text="Владелец: " x:Name="Owner" FontSize="24" HorizontalAlignment="Left"
+                    FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+            <TextBlock Text="Статус: " x:Name="Status" FontSize="24" HorizontalAlignment="Left"
+                    FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+
+
+        </StackPanel>
+
+
+
+
+
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" 
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                    Margin="0,0,0,40">
+            <Button Background="#8AAE92" Width="300" Height="60" 
+                        x:Name="buyButton" Click="buyButton_Click">
+                <TextBox Text="Купить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="24" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False" />
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="30"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+
+
+        
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.RowSpan="2" 
+                    Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Margin="0,0,0,0">
+            <Button Width="200" Height="100" Margin="0,0,0,0" x:Name="buttonHome" Click="buttonHome_Click"  Background="#616161">
+                <Image DockPanel.Dock="Left" Width="200" Height="100"
+                           Source="/Images/home.png"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

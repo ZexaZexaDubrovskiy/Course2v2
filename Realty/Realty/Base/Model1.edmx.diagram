@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f1457bc20d3045cf8a65dda0b2003d03" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="RealtyModel.sysdiagrams" Width="1.5" PointX="3.375" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtyModel.TypeRealty" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealtyModel.StatusRealty" Width="1.5" PointX="5.375" PointY="4.875" />
+        <EntityTypeShape EntityType="RealtyModel.Accounts" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="RealtyModel.Realty" Width="1.5" PointX="7.625" PointY="2.5" />
+        <EntityTypeShape EntityType="RealtyModel.Transaction" Width="1.5" PointX="9.875" PointY="3" />
+        <AssociationConnector Association="RealtyModel.FK_Realty_Accounts" />
+        <AssociationConnector Association="RealtyModel.FK_Realty_StatusRealty" />
+        <AssociationConnector Association="RealtyModel.FK_Realty_TypeRealty" />
+        <AssociationConnector Association="RealtyModel.FK_Transaction_Realty" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

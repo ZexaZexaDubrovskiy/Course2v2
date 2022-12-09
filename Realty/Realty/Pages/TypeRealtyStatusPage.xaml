@@ -1,0 +1,102 @@
+﻿<Page x:Class="Realty.Pages.TypeRealtyStatusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Realty.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TypeRealtyStatusPage" Loaded="Page_Loaded">
+    <Grid Background="#F4F9F4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition x:Name="StatusRealtyColumnChange" Width="400" MaxWidth="400"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.ColumnSpan="5" Grid.RowSpan="5" Source="/Images/back.png" 
+               Stretch="Fill" Opacity="0.3"/>
+
+        <TextBlock Text="Тип статуса" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="26" FontWeight="ExtraBold" Foreground="#8AAE92"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Button x:Name="StatusRealtyAdd" Height="30" Width="100" Margin="5,5,0,5" Click="StatusRealtyAdd_Click"  Background="#8AAE92">
+                <TextBox Text="Добавить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Button x:Name="StatusRealtyCopy" Height="30" Width="100" Padding="5,5,5,5" Margin="5,5,0,5" Click="StatusRealtyCopy_Click" Background="#8AAE92">
+                <TextBox Text="Копировать" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="14" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Button x:Name="StatusRealtyEdit" Height="30" Width="100" Padding="5,5,5,5" Margin="5,5,0,5" Click="StatusRealtyEdit_Click" Background="#8AAE92">
+                <TextBox Text="Изменить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Button x:Name="StatusRealtyDelete" Height="30" Width="100" Padding="5,5,5,5" Margin="5,5,0,5" Click="StatusRealtyDelete_Click" Background="#8AAE92">
+                <TextBox Text="Удалить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+            </Button>
+            <Label Content="|" FontSize="24" FontWeight="Bold" Foreground="Gray" Margin="15,0,0,0"/>
+            <ComboBox x:Name="StatusRealtyFilterComboBox" Width="150" Height="30" Margin="15,0,0,0" Style="{StaticResource ComboBoxStyle2}"/>
+            <TextBox x:Name="StatusRealtyFilterTextBox" Margin="5,0,5,0" Width="170" Height="30" TextChanged="StatusRealtyFilterTextBox_TextChanged" Foreground="White"
+                         Background="#8AAE92" FontWeight="Bold" FontSize="16" BorderThickness="0" Padding="0,4,0,0"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid x:Name="StatusRealtyGrid" AutoGenerateColumns="False" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Path=Status}" Width="10*"/>
+
+                    <!--столбец с кнопками управления-->
+                    <DataGridTemplateColumn Header="Управление">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Изм." Width="30" Margin="5,0,0,0" x:Name="StatusRealtyEdit"
+                                            FontSize="8" Click="StatusRealtyEdit_Click"/>
+                                    <Button Content="Удал." Width="30" Margin="5,0,5,0" x:Name="StatusRealtyDelete"
+                                            FontSize="8" Click="StatusRealtyDelete_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+
+        <GridSplitter Grid.Column="1" Grid.Row="2" Width="3" HorizontalAlignment="Stretch" />
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Vertical" Background="#F4F9F4">
+            <Label x:Name="StatusRealtyLabel" Content="Добавить статус" Foreground="#8AAE92" FontSize="18" FontWeight="Bold" Margin="5,0,0,0"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Статус" Margin="5,0,0,0" Width="100" Foreground="#8AAE92" FontSize="12" FontWeight="Bold"/>
+                <TextBox x:Name="StatusRealtyTextStatus" Width="150" Height="15" Margin="5,0,0,0" Foreground="White" 
+                         Background="#8AAE92" FontWeight="Bold" FontSize="12" BorderThickness="0" Padding="0,0,0,0"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <Button x:Name="StatusRealtyAddCommit" Height="30" Width="150" Padding="0,0,0,0" Margin="5,5,0,5" Click="StatusRealtyAddCommit_Click" Background="#8AAE92">
+                    <TextBox Text="Добавить " x:Name="StatusRealtyAddCommitTextBox" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+                </Button>
+                <Button x:Name="StatusRealtyAddRollback" Height="30" Width="150" Click="StatusRealtyAddRollback_Click" Padding="0,0,0,0"
+                        Margin="5,5,0,5"  Background="#8AAE92">
+                    <TextBox Text="Отменить" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="15" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

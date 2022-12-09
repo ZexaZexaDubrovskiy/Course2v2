@@ -1,0 +1,127 @@
+﻿<Window x:Class="Realty.BaseWindows.Authorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Realty.BaseWindows"
+        mc:Ignorable="d"
+        Title="Authorization"
+        Width="640" Height="620"
+        MinWidth="640" MinHeight="620"
+        MaxWidth="640" MaxHeight="620"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="450"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.ColumnSpan="5" Grid.RowSpan="5" Source="/Images/back.png" 
+               Stretch="Fill" Opacity="0.3"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+            <Rectangle Fill="#C4E3CB" Width="600" Height="500" 
+                       RadiusX="100" RadiusY="100" HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" />
+        </StackPanel>
+
+
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Авторизация" Background="Transparent" Foreground="White"
+                           FontWeight="Bold" FontSize="38" BorderThickness="0"
+                           Width="260" Height="60">
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" />
+                    </Label.Effect>
+                </Label>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <TextBox x:Name="userLogin" Width="550" Height="50" Background="#8AAE92" 
+                          VerticalContentAlignment="Center"  HorizontalContentAlignment="Left" 
+                         FontSize="28" Foreground="White" FontWeight="Bold" Padding="10,0,10,0"
+                        LostFocus="userLogin_LostFocus"
+                         GotFocus="userLogin_GotFocus"
+                         >
+                </TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+
+                <TextBox x:Name="userPassword" Width="0" Height="50" Background="#8AAE92" 
+                          VerticalContentAlignment="Center"  HorizontalContentAlignment="Left" 
+                         FontSize="28" Foreground="White" FontWeight="Bold" Padding="10,0,10,0"
+                         TabIndex="1" Visibility="Hidden"/>
+
+                <PasswordBox x:Name="userConfirmPassword" Width="450" Height="50" Background="#8AAE92" 
+                          VerticalContentAlignment="Center"  HorizontalContentAlignment="Left" 
+                         FontSize="28" Foreground="White" FontWeight="Bold" Padding="10,0,10,0"
+                         TabIndex="2"
+                         />
+
+                <Button Background="#8AAE92" Width="90" Height="40" 
+                        x:Name="PasswordButton" Click="PasswordButton_Click"
+                        IsDefault="True" TabIndex="1" Margin="10,0,0,0">
+                    <TextBox Text="Показать" x:Name="textButton" Foreground="White" Background="Transparent" 
+                             FontSize="18" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False" />
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,100,0,0">
+                <Button Background="#8AAE92" Width="300" Height="60" x:Name="signInButton"
+                        Click="signInButton_Click">
+                    <TextBox Text="Вход" Foreground="White" Background="Transparent" 
+                             FontWeight="Bold" FontSize="24" BorderThickness="0" 
+                             IsReadOnly="True" Focusable="False" />
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Label Content="Регистрация" Background="Transparent" Foreground="White"
+                       x:Name="ButtonSignUp"
+                           FontWeight="Bold" FontSize="20" BorderThickness="0"
+                           Width="130" Height="37" 
+                       PreviewMouseDown="ButtonSignUp_PreviewMouseDown"
+                           MouseEnter="ButtonSignUp_MouseEnter"
+                       MouseLeave="ButtonSignUp_MouseLeave"
+                       >
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" />
+                    </Label.Effect>
+                </Label>
+            </StackPanel>
+            
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.RowSpan="2" 
+                    Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Margin="0,0,0,0">
+            <Button Width="200" Height="100" Margin="0,0,0,0"   Background="#616161">
+                <Image DockPanel.Dock="Left" Width="200" Height="100"
+                           Source="/Images/home.png"/>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,154 @@
+D:\Course4\Realty\Realty\bin\Debug\Realty.exe.config
+D:\Course4\Realty\Realty\bin\Debug\Realty.exe
+D:\Course4\Realty\Realty\bin\Debug\Realty.pdb
+D:\Course4\Realty\Realty\obj\Debug\Realty.csproj.AssemblyReference.cache
+D:\Course4\Realty\Realty\obj\Debug\Realty.csproj.SuggestedBindingRedirects.cache
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\Registration.g.cs
+D:\Course4\Realty\Realty\obj\Debug\MainWindow.g.cs
+D:\Course4\Realty\Realty\obj\Debug\App.g.cs
+D:\Course4\Realty\Realty\obj\Debug\Realty_MarkupCompile.cache
+D:\Course4\Realty\Realty\obj\Debug\Realty_MarkupCompile.lref
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\Registration.baml
+D:\Course4\Realty\Realty\obj\Debug\MainWindow.baml
+D:\Course4\Realty\Realty\obj\Debug\Realty.g.resources
+D:\Course4\Realty\Realty\obj\Debug\Realty.Properties.Resources.resources
+D:\Course4\Realty\Realty\obj\Debug\Realty.csproj.GenerateResource.cache
+D:\Course4\Realty\Realty\obj\Debug\Realty.csproj.CoreCompileInputs.cache
+D:\Course4\Realty\Realty\obj\Debug\Realty.exe
+D:\Course4\Realty\Realty\obj\Debug\Realty.pdb
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\Authorization.g.cs
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\Authorization.baml
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\Home.g.cs
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\Home.baml
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\Account.g.cs
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\Account.baml
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\purchaseWindow.g.cs
+D:\Course4\Realty\Realty\obj\Debug\BaseWindows\purchaseWindow.baml
+D:\4is2\Realty\Realty\bin\Debug\Realty.exe.config
+D:\4is2\Realty\Realty\bin\Debug\Realty.exe
+D:\4is2\Realty\Realty\bin\Debug\Realty.pdb
+D:\4is2\Realty\Realty\obj\Debug\Realty.csprojAssemblyReference.cache
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\Account.g.cs
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\Authorization.g.cs
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\Home.g.cs
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\purchaseWindow.g.cs
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\Registration.g.cs
+D:\4is2\Realty\Realty\obj\Debug\MainWindow.g.cs
+D:\4is2\Realty\Realty\obj\Debug\App.g.cs
+D:\4is2\Realty\Realty\obj\Debug\Realty_MarkupCompile.cache
+D:\4is2\Realty\Realty\obj\Debug\Realty_MarkupCompile.lref
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\Account.baml
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\Authorization.baml
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\Home.baml
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\purchaseWindow.baml
+D:\4is2\Realty\Realty\obj\Debug\BaseWindows\Registration.baml
+D:\4is2\Realty\Realty\obj\Debug\MainWindow.baml
+D:\4is2\Realty\Realty\obj\Debug\Realty.g.resources
+D:\4is2\Realty\Realty\obj\Debug\Realty.Properties.Resources.resources
+D:\4is2\Realty\Realty\obj\Debug\Realty.csproj.GenerateResource.cache
+D:\4is2\Realty\Realty\obj\Debug\Realty.csproj.CoreCompileInputs.cache
+D:\4is2\Realty\Realty\obj\Debug\Realty.exe
+D:\4is2\Realty\Realty\obj\Debug\Realty.pdb
+D:\4is2\Realty\Realty\bin\Debug\EntityFramework.dll
+D:\4is2\Realty\Realty\bin\Debug\EntityFramework.SqlServer.dll
+D:\4is2\Realty\Realty\bin\Debug\EntityFramework.xml
+D:\4is2\Realty\Realty\bin\Debug\EntityFramework.SqlServer.xml
+D:\4is2\Realty\Realty\obj\Debug\Realty_Content.g.cs
+D:\4is2\Realty\Realty\obj\Debug\Realty.csproj.CopyComplete
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Account.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Authorization.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Home.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\purchaseWindow.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Registration.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\MainWindow.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\App.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty_Content.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty_MarkupCompile.cache
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty_MarkupCompile.lref
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty.exe
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty.pdb
+D:\4is2\Dubrovskiy\Realty\Realty\bin\Debug\Realty.exe.config
+D:\4is2\Dubrovskiy\Realty\Realty\bin\Debug\Realty.exe
+D:\4is2\Dubrovskiy\Realty\Realty\bin\Debug\Realty.pdb
+D:\4is2\Dubrovskiy\Realty\Realty\bin\Debug\EntityFramework.dll
+D:\4is2\Dubrovskiy\Realty\Realty\bin\Debug\EntityFramework.SqlServer.dll
+D:\4is2\Dubrovskiy\Realty\Realty\bin\Debug\EntityFramework.xml
+D:\4is2\Dubrovskiy\Realty\Realty\bin\Debug\EntityFramework.SqlServer.xml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Account.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Authorization.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Home.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\purchaseWindow.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Registration.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\MainWindow.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty.g.resources
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty.Properties.Resources.resources
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty.csproj.GenerateResource.cache
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty.csproj.CoreCompileInputs.cache
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty.csproj.CopyComplete
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Capcha.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\BaseWindows\Capcha.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\AdminWindows\AdminWindow.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\AccountPage.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\ClientPage.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\RealtyPage.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\TransactionPage.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\TypeRealtyPage.g.cs
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\AdminWindows\AdminWindow.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\AccountPage.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\ClientPage.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\RealtyPage.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\TransactionPage.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Pages\TypeRealtyPage.baml
+D:\4is2\Dubrovskiy\Realty\Realty\obj\Debug\Realty.csprojAssemblyReference.cache
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\AdminWindows\AdminWindow.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Account.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Authorization.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Capcha.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Home.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\purchaseWindow.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Registration.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\AccountPage.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\RealtyPage.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\TransactionPage.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\TypeRealtyPage.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\App.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty_Content.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty_MarkupCompile.cache
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty_MarkupCompile.lref
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty.exe
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty.pdb
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\bin\Debug\Realty.exe.config
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\bin\Debug\Realty.exe
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\bin\Debug\Realty.pdb
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\bin\Debug\EntityFramework.dll
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\bin\Debug\EntityFramework.SqlServer.dll
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\bin\Debug\EntityFramework.xml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\bin\Debug\EntityFramework.SqlServer.xml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\AdminWindows\AdminWindow.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Account.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Authorization.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Capcha.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Home.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\purchaseWindow.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\Registration.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\AccountPage.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\RealtyPage.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\TransactionPage.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\TypeRealtyPage.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty.g.resources
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty.Properties.Resources.resources
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty.csproj.GenerateResource.cache
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty.csproj.CoreCompileInputs.cache
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Realty.csproj.CopyComplete
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\CreateRealty.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\CreateRealty.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\RealtyItem.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\RealtyItem.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\learnWindow.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\learnWindow.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\addMoneyWindow.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\BaseWindows\addMoneyWindow.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\TypeRealtyStatusPage.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\Pages\TypeRealtyStatusPage.baml
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\App.baml

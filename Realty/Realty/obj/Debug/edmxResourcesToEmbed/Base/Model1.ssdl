@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RealtyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="idAccount" />
+    </Key>
+    <Property Name="idAccount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Admin" Type="tinyint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="11" />
+    <Property Name="PassportNumbers" Type="int" />
+    <Property Name="FIO" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="money" Type="money" />
+  </EntityType>
+  <EntityType Name="Realty">
+    <Key>
+      <PropertyRef Name="IdRealty" />
+    </Key>
+    <Property Name="IdRealty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="money" />
+    <Property Name="Square" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Floor" Type="int" />
+    <Property Name="Rooms" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="IdOwnerAccount" Type="int" />
+    <Property Name="IdTypeRealty" Type="int" />
+    <Property Name="img" Type="text" />
+    <Property Name="idStatusRealty" Type="int" />
+  </EntityType>
+  <EntityType Name="StatusRealty">
+    <Key>
+      <PropertyRef Name="idStatusRealty" />
+    </Key>
+    <Property Name="idStatusRealty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="IdTransaction" />
+    </Key>
+    <Property Name="IdTransaction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTransactionRealty" Type="int" />
+    <Property Name="TransactionAccountOwner" Type="int" />
+    <Property Name="Date" Type="date" />
+    <Property Name="PriceTransaction" Type="money" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+    <Property Name="IdTransactionTypeRealty" Type="int" />
+    <Property Name="TransactionAccountBuyer" Type="int" />
+  </EntityType>
+  <EntityType Name="TypeRealty">
+    <Key>
+      <PropertyRef Name="idTypeRealty" />
+    </Key>
+    <Property Name="idTypeRealty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Realty_Accounts">
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+    <End Role="Realty" Type="Self.Realty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="idAccount" />
+      </Principal>
+      <Dependent Role="Realty">
+        <PropertyRef Name="IdOwnerAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Realty_StatusRealty">
+    <End Role="StatusRealty" Type="Self.StatusRealty" Multiplicity="0..1" />
+    <End Role="Realty" Type="Self.Realty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusRealty">
+        <PropertyRef Name="idStatusRealty" />
+      </Principal>
+      <Dependent Role="Realty">
+        <PropertyRef Name="idStatusRealty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Realty_TypeRealty">
+    <End Role="TypeRealty" Type="Self.TypeRealty" Multiplicity="0..1" />
+    <End Role="Realty" Type="Self.Realty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeRealty">
+        <PropertyRef Name="idTypeRealty" />
+      </Principal>
+      <Dependent Role="Realty">
+        <PropertyRef Name="IdTypeRealty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Realty">
+    <End Role="Realty" Type="Self.Realty" Multiplicity="0..1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Realty">
+        <PropertyRef Name="IdRealty" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="IdTransactionRealty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RealtyModelStoreContainer">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Realty" EntityType="Self.Realty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusRealty" EntityType="Self.StatusRealty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeRealty" EntityType="Self.TypeRealty" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Realty_Accounts" Association="Self.FK_Realty_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Realty" EntitySet="Realty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Realty_StatusRealty" Association="Self.FK_Realty_StatusRealty">
+      <End Role="StatusRealty" EntitySet="StatusRealty" />
+      <End Role="Realty" EntitySet="Realty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Realty_TypeRealty" Association="Self.FK_Realty_TypeRealty">
+      <End Role="TypeRealty" EntitySet="TypeRealty" />
+      <End Role="Realty" EntitySet="Realty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Realty" Association="Self.FK_Transaction_Realty">
+      <End Role="Realty" EntitySet="Realty" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

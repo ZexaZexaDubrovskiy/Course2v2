@@ -1,0 +1,20 @@
+﻿Realty
+
+
+winexe
+C#
+.cs
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\obj\Debug\
+Realty
+none
+false
+DEBUG;TRACE
+D:\4is2\КУРСОВАЯ 2\Realty\Realty\App.xaml
+16-1026388078
+2-246117042
+311872928004
+19248519010
+AdminWindows\AdminWindow.xaml;BaseWindows\Account.xaml;BaseWindows\addMoneyWindow.xaml;BaseWindows\Authorization.xaml;BaseWindows\Capcha.xaml;BaseWindows\CreateRealty.xaml;BaseWindows\Home.xaml;BaseWindows\learnWindow.xaml;BaseWindows\purchaseWindow.xaml;BaseWindows\RealtyItem.xaml;BaseWindows\Registration.xaml;Pages\AccountPage.xaml;Pages\RealtyPage.xaml;Pages\TransactionPage.xaml;Pages\TypeRealtyPage.xaml;Pages\TypeRealtyStatusPage.xaml;
+
+False
+

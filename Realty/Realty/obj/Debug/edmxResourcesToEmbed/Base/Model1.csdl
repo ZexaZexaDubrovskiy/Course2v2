@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RealtyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TypeRealty">
+    <Key>
+      <PropertyRef Name="idTypeRealty" />
+    </Key>
+    <Property Name="idTypeRealty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Realty" Relationship="RealtyModel.FK_Realty_TypeRealty" FromRole="TypeRealty" ToRole="Realty" />
+  </EntityType>
+  <EntityContainer Name="RealtyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TypeRealty" EntityType="Self.TypeRealty" />
+    <EntitySet Name="StatusRealty" EntityType="RealtyModel.StatusRealty" />
+    <EntitySet Name="Accounts" EntityType="RealtyModel.Accounts" />
+    <EntitySet Name="Realty" EntityType="RealtyModel.Realty" />
+    <EntitySet Name="Transaction" EntityType="RealtyModel.Transaction" />
+    <AssociationSet Name="FK_Realty_Accounts" Association="RealtyModel.FK_Realty_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Realty" EntitySet="Realty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Realty_StatusRealty" Association="RealtyModel.FK_Realty_StatusRealty">
+      <End Role="StatusRealty" EntitySet="StatusRealty" />
+      <End Role="Realty" EntitySet="Realty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Realty_TypeRealty" Association="RealtyModel.FK_Realty_TypeRealty">
+      <End Role="TypeRealty" EntitySet="TypeRealty" />
+      <End Role="Realty" EntitySet="Realty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Realty" Association="RealtyModel.FK_Transaction_Realty">
+      <End Role="Realty" EntitySet="Realty" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="StatusRealty">
+    <Key>
+      <PropertyRef Name="idStatusRealty" />
+    </Key>
+    <Property Name="idStatusRealty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Realty" Relationship="RealtyModel.FK_Realty_StatusRealty" FromRole="StatusRealty" ToRole="Realty" />
+  </EntityType>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="idAccount" />
+    </Key>
+    <Property Name="idAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Admin" Type="Byte" />
+    <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="PassportNumbers" Type="Int32" />
+    <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="money" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Realty" Relationship="RealtyModel.FK_Realty_Accounts" FromRole="Accounts" ToRole="Realty" />
+  </EntityType>
+  <EntityType Name="Realty">
+    <Key>
+      <PropertyRef Name="IdRealty" />
+    </Key>
+    <Property Name="IdRealty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Square" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Floor" Type="Int32" />
+    <Property Name="Rooms" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IdOwnerAccount" Type="Int32" />
+    <Property Name="IdTypeRealty" Type="Int32" />
+    <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idStatusRealty" Type="Int32" />
+    <NavigationProperty Name="Accounts" Relationship="RealtyModel.FK_Realty_Accounts" FromRole="Realty" ToRole="Accounts" />
+    <NavigationProperty Name="StatusRealty" Relationship="RealtyModel.FK_Realty_StatusRealty" FromRole="Realty" ToRole="StatusRealty" />
+    <NavigationProperty Name="TypeRealty" Relationship="RealtyModel.FK_Realty_TypeRealty" FromRole="Realty" ToRole="TypeRealty" />
+    <NavigationProperty Name="Transaction" Relationship="RealtyModel.FK_Transaction_Realty" FromRole="Realty" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="IdTransaction" />
+    </Key>
+    <Property Name="IdTransaction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTransactionRealty" Type="Int32" />
+    <Property Name="TransactionAccountOwner" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="PriceTransaction" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="IdTransactionTypeRealty" Type="Int32" />
+    <Property Name="TransactionAccountBuyer" Type="Int32" />
+    <NavigationProperty Name="Realty" Relationship="RealtyModel.FK_Transaction_Realty" FromRole="Transaction" ToRole="Realty" />
+  </EntityType>
+  <Association Name="FK_Realty_Accounts">
+    <End Type="RealtyModel.Accounts" Role="Accounts" Multiplicity="0..1" />
+    <End Type="RealtyModel.Realty" Role="Realty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="idAccount" />
+      </Principal>
+      <Dependent Role="Realty">
+        <PropertyRef Name="IdOwnerAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Realty_StatusRealty">
+    <End Type="RealtyModel.StatusRealty" Role="StatusRealty" Multiplicity="0..1" />
+    <End Type="RealtyModel.Realty" Role="Realty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusRealty">
+        <PropertyRef Name="idStatusRealty" />
+      </Principal>
+      <Dependent Role="Realty">
+        <PropertyRef Name="idStatusRealty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Realty_TypeRealty">
+    <End Type="RealtyModel.TypeRealty" Role="TypeRealty" Multiplicity="0..1" />
+    <End Type="RealtyModel.Realty" Role="Realty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeRealty">
+        <PropertyRef Name="idTypeRealty" />
+      </Principal>
+      <Dependent Role="Realty">
+        <PropertyRef Name="IdTypeRealty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Realty">
+    <End Type="RealtyModel.Realty" Role="Realty" Multiplicity="0..1" />
+    <End Type="RealtyModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Realty">
+        <PropertyRef Name="IdRealty" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="IdTransactionRealty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
